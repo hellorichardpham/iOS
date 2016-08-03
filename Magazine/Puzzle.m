@@ -17,13 +17,10 @@
     [super viewDidLoad];
     [self preparePencil];
     [self prepareMenu];
-    
+    _isDrawingEnabled = true;
+    [self registerForNotifications];
         [[NSUserDefaults standardUserDefaults] setPersistentDomain:[NSDictionary dictionary] forName:[[NSBundle mainBundle] bundleIdentifier]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadImage:)
-                                                 name:@"reload"
-                                               object:nil];
     
     NSLog(@"Loading View. filename: %@ topic: %@", _fileName, _currentTopic);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -67,10 +64,26 @@
     NSLog(@"Temp: %@", _tempDrawingImage);
 }
 
-
+- (void)registerForNotifications {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(performNotificationAction:)
+                                                 name:@"reload"
+                                               object:nil];
+    
+    /*[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(performNotificationAction:)
+                                                 name:@"enableDrawing"
+                                               object:nil];
+    */
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(performNotificationAction:)
+                                                 name:@"disableDrawing"
+                                               object:nil];
+}
 
 -(void) connectToDatabase {
-    _connectionString = "user=rwpham password=richard1 dbname=postgres  port=5432 host=52.9.114.219";
+    _connectionString = "user=labs2025 password=engrRgr8 dbname=iOSDatabase  port=5432 host=labs2025ios.clygqyctjtg6.us-west-2.rds.amazonaws.com";    
     _connection = PQconnectdb(_connectionString);
     
     if(PQstatus(_connection) != CONNECTION_OK) {
@@ -163,12 +176,16 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if(_isDrawingEnabled) {
+
     _mouseSwiped = NO;
     UITouch *touch = [touches anyObject];
     _lastPoint = [touch locationInView:self.view];
+    }
 }
 
 -(void) touchesMoved:(NSSet<UITouch*> *)touches withEvent:(UIEvent *)event {
+    if(_isDrawingEnabled) {
     _mouseSwiped = YES;
     UITouch *touch = [touches anyObject];
     CGPoint currentPoint = [touch locationInView:self.view];
@@ -190,11 +207,12 @@
     UIGraphicsEndImageContext();
     
     _lastPoint = currentPoint;
-    
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    if(_isDrawingEnabled) {
+
     if(!_mouseSwiped) {
         UIGraphicsBeginImageContext(self.view.frame.size);
         [self.tempDrawingImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -215,7 +233,7 @@
     self.cipher.image = UIGraphicsGetImageFromCurrentImageContext();
     self.tempDrawingImage.image = nil;
     UIGraphicsEndImageContext();
-    
+    }
 }
 
 -(IBAction)buttonPressed:(id)sender {
@@ -247,7 +265,16 @@
     }
 }
 
--(void)reloadImage:(NSNotification *)notification {
+-(void)enableDisableScrolling:(NSNotification *)notification {
+
+}
+
+-(void)performNotificationAction:(NSNotification *)notification {
+    
+    NSString *reason = [notification name];
+    NSLog(@"I am in performNotificationAction located in Puzzle.m The notification reason: %@", reason);
+    
+    if([reason isEqualToString:@"reload"]) {
     NSLog(@"Loading View. filename: %@ topic: %@", _fileName, _currentTopic);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -282,7 +309,15 @@
                             }
                         }];
     NSLog(@"end of reload function");
+    } else if([reason isEqualToString:@"enableDrawing"]) {
+        NSLog(@"reason isEqualTo: enableDrawing");
+        _isDrawingEnabled = true;
+        
+    } else if([reason isEqualToString:@"disableDrawing"]) {
+        NSLog(@"reason isEqualTo: disableDrawing");
 
+        _isDrawingEnabled = false;
+    }
 }
 
 

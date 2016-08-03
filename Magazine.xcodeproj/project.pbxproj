@@ -72,6 +72,8 @@
 		782592141D46963E00556A66 /* Puzzle-150.png in Resources */ = {isa = PBXBuildFile; fileRef = 782592131D46963E00556A66 /* Puzzle-150.png */; };
 		7837DF501D504A6C00E17401 /* drum01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7837DF4F1D504A6C00E17401 /* drum01.mp3 */; };
 		7837DF531D504EEB00E17401 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7837DF521D504EEB00E17401 /* YTPlayerView.m */; };
+		7837DF561D5251C000E17401 /* Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 7837DF541D5251C000E17401 /* Black.png */; };
+		7837DF571D5251C000E17401 /* Eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = 7837DF551D5251C000E17401 /* Eraser.png */; };
 		784A316F1D248CA200AC8AB9 /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 784A316C1D248CA200AC8AB9 /* quiz.json */; };
 		784A31841D26CE6700AC8AB9 /* Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 784A31831D26CE6700AC8AB9 /* Quiz.m */; };
 		784A31871D26E4D200AC8AB9 /* CircleProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 784A31861D26E4D200AC8AB9 /* CircleProgressBar.m */; };
@@ -184,6 +186,8 @@
 		7837DF4F1D504A6C00E17401 /* drum01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drum01.mp3; sourceTree = "<group>"; };
 		7837DF511D504EEB00E17401 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
 		7837DF521D504EEB00E17401 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		7837DF541D5251C000E17401 /* Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Black.png; sourceTree = "<group>"; };
+		7837DF551D5251C000E17401 /* Eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Eraser.png; sourceTree = "<group>"; };
 		784A316C1D248CA200AC8AB9 /* quiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = quiz.json; path = /Users/mbpro/Desktop/Quiz/Quiz/../../../Downloads/quiz.json; sourceTree = "<absolute>"; };
 		784A31821D26CE6700AC8AB9 /* Quiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quiz.h; sourceTree = "<group>"; };
 		784A31831D26CE6700AC8AB9 /* Quiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quiz.m; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 				780C6A651D3FE9130004CD98 /* passwordIcon.png */,
 				7861CADE1D4BFC400029256A /* ciphercopy.jpg */,
 				780C6A661D3FE9130004CD98 /* plus.png */,
+				7837DF541D5251C000E17401 /* Black.png */,
+				7837DF551D5251C000E17401 /* Eraser.png */,
 				780C6A671D3FE9130004CD98 /* project.png */,
 				780C6A681D3FE9130004CD98 /* project_icon_70x70.png */,
 				780C6A6A1D3FE9130004CD98 /* quiz.json */,
@@ -500,6 +506,7 @@
 				780C6AA61D3FE9130004CD98 /* wrong.png in Resources */,
 				7861CAEB1D4FAAF30029256A /* wordsearchcomputing.png in Resources */,
 				780C6A7D1D3FE9130004CD98 /* hongkong.jpg in Resources */,
+				7837DF561D5251C000E17401 /* Black.png in Resources */,
 				780C6A881D3FE9130004CD98 /* keyEmpty.png in Resources */,
 				7861CAE31D4C03420029256A /* cipherforapp.png in Resources */,
 				780C6AAB1D3FFA950004CD98 /* siliconvalley.jpg in Resources */,
@@ -527,6 +534,7 @@
 				7825920D1D45694500556A66 /* project_icon.png in Resources */,
 				780C6A7E1D3FE9130004CD98 /* london.jpg in Resources */,
 				780C6A831D3FE9130004CD98 /* shenzhen.jpg in Resources */,
+				7837DF571D5251C000E17401 /* Eraser.png in Resources */,
 				780C6A851D3FE9130004CD98 /* washingtondc.jpg in Resources */,
 				780C6AA31D3FE9130004CD98 /* userIcon2.jpg in Resources */,
 				7861CADF1D4BFC400029256A /* ciphercopy.jpg in Resources */,

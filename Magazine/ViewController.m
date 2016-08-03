@@ -42,7 +42,7 @@
     [self prepareHomepage];
     [self setupScrollview];
     [self setupAudio];
-    
+    _isScrollingEnabled = false;
     UIStoryboard *mainStoryboard = self.storyboard;
 
     Puzzle *puzzleController = [mainStoryboard instantiateViewControllerWithIdentifier:@"PuzzleScene"];
@@ -207,6 +207,19 @@
     }
 }
 
+-(IBAction) enableDisableScrolling:(id) sender {
+    NSLog(@"Calling enableDisableScrolling. _isScrollingEnabled = %d", _isScrollingEnabled);
+    if(_isScrollingEnabled) {
+        //Scrolling is enabled -> Make it disabled
+        self.scrollView.scrollEnabled = NO;
+        [self notifyWithReason:@"enableDrawing"];
+        //Disable Scrolling and send signal to embedded view controller that you cannot draw
+    } else {
+        self.scrollView.scrollEnabled = YES;
+        [self notifyWithReason:@"disableDrawing"];
+    }
+}
+
 - (IBAction)menuPressed:(id)sender {
     NSLog(@"Menu Pressed");
     if(_isMenuActive) {
@@ -251,6 +264,12 @@
             break;
     }
 }
+
+-(void) notifyWithReason: (NSString*) reason {
+    [[NSNotificationCenter defaultCenter]postNotificationName:reason object:nil];
+    NSLog(@"Called notification with reason: %@", reason);
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
