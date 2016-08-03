@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "Puzzle.h"
-#import "ArticleViewing.h"
+#import "News.h"
 #import "IGCMenu.h"
 #import "youtubeViewController.h"
 #import "PuzzleNavigation.h"
@@ -181,7 +181,7 @@
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [_audioPlayer play];
     if([segue.identifier isEqualToString:@"showNews"]) {
-        ArticleViewing* controller = [segue destinationViewController];
+        News* controller = [segue destinationViewController];
         controller.fileName = @"article";
         controller.currentTopic = _currentTopic;
     } else if([segue.identifier isEqualToString:@"showPuzzle"]) {
@@ -189,14 +189,14 @@
         controller.currentTopic = _currentTopic;
         controller.fileName = @"wordsearch.png";
     } else if([segue.identifier isEqualToString:@"showWorld"]) {
-        ArticleViewing* controller = [segue destinationViewController];
+        News* controller = [segue destinationViewController];
         controller.currentTopic = _currentTopic;
     }  else if([segue.identifier isEqualToString:@"showLeftArticle"]) {
-        ArticleViewing* controller = [segue destinationViewController];
+        News* controller = [segue destinationViewController];
         controller.currentTopic = _currentTopic;
         controller.pageToJumpTo = _leftArticlePageToJumpTo;
     }  else if([segue.identifier isEqualToString:@"showRightArticle"]) {
-        ArticleViewing* controller = [segue destinationViewController];
+        News* controller = [segue destinationViewController];
         controller.currentTopic = _currentTopic;
         controller.pageToJumpTo = _rightArticlePageToJumpTo;
     }   else if([segue.identifier isEqualToString:@"showFillInTheBlank"]) {

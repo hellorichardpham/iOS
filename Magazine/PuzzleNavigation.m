@@ -10,7 +10,7 @@
 #import "Puzzle.h"
 #import "IGCMenu.h"
 #import <libpq/libpq-fe.h>
-#import "ArticleViewing.h"
+#import "News.h"
 @import WebImage;
 
 @implementation PuzzleNavigation
@@ -43,7 +43,7 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showNews"]) {
-        ArticleViewing* controller = [segue destinationViewController];
+        News* controller = [segue destinationViewController];
         controller.fileName = @"article";
         controller.currentTopic = _currentTopic;
     } else if([segue.identifier isEqualToString:@"showPuzzle"]) {
@@ -52,7 +52,7 @@
         controller.fileName = @"wordsearch.png";
         NSLog(@"Segue to Puzzle Nav");
     } else if([segue.identifier isEqualToString:@"showWorld"]) {
-        ArticleViewing* controller = [segue destinationViewController];
+        News* controller = [segue destinationViewController];
         controller.currentTopic = _currentTopic;
     }
 }

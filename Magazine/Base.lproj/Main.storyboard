@@ -1506,7 +1506,7 @@
         <!--News-->
         <scene sceneID="nnH-vc-f7h">
             <objects>
-                <viewController id="pDq-T7-iyd" customClass="ArticleViewing" sceneMemberID="viewController">
+                <viewController id="pDq-T7-iyd" customClass="News" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mB0-os-NNG"/>
                         <viewControllerLayoutGuide type="bottom" id="nRg-nh-pSQ"/>
@@ -2046,8 +2046,8 @@
         <image name="world_icon.png" width="70" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5YP-GH-eCZ"/>
         <segue reference="anB-I7-f2y"/>
-        <segue reference="QKB-Zu-Kf1"/>
+        <segue reference="qFV-4O-sTf"/>
+        <segue reference="Q8V-48-htX"/>
     </inferredMetricsTieBreakers>
 </document>

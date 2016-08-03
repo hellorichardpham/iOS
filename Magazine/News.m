@@ -1,17 +1,17 @@
 //
-//  ArticleViewing.m
+//  News
 //  Magazine
 //
 //  Created by MBPro on 6/27/16.
 //  Copyright © 2016 MBPro. All rights reserved.
 //
 
-#import "ArticleViewing.h"
+#import "News.h"
 #import <libpq/libpq-fe.h>
 #import "PuzzleNavigation.h"
 @import WebImage;
 
-@implementation ArticleViewing
+@implementation News
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -131,7 +131,7 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showNews"]) {
-        ArticleViewing* controller = [segue destinationViewController];
+        News* controller = [segue destinationViewController];
         controller.fileName = @"article";
         controller.currentTopic = _currentTopic;
     } else if([segue.identifier isEqualToString:@"showPuzzle"]) {

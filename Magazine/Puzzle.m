@@ -168,7 +168,7 @@
     _lastPoint = [touch locationInView:self.view];
 }
 
--(void) touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+-(void) touchesMoved:(NSSet<UITouch*> *)touches withEvent:(UIEvent *)event {
     _mouseSwiped = YES;
     UITouch *touch = [touches anyObject];
     CGPoint currentPoint = [touch locationInView:self.view];
